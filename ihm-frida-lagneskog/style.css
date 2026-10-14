@@ -1,0 +1,472 @@
+/* ==========================================================================
+   Frida Lagneskog - Personal Brand Style
+   Designad med inspiration från modetidningar, editorial minimalism
+   och lugna, varma färgtoner.
+   ========================================================================== */
+
+/* 1 · Box-modellen: bredden gäller hela lådan och mjuk scrollning */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* 2 · Varumärket som variabler (inspirerat av färgkartan i 'ladda ned (1).jpg') */
+:root {
+    /* Färger för ljust läge */
+    --text: #231b1c;
+    /* Bordeaux Noir: djup espressobrun för hög kontrast (>14:1) */
+    --text-subtil: #5c5053;
+    /* Mjuk dämpad ton för sekundär text (>6.5:1) */
+    --yta: #faf7f2;
+    /* Vanilla Silk: varm, lugn krämfärgad bakgrund */
+    --yta-2: #f2ece2;
+    /* Alpine Oat: mjuk ljusgreige för kort och ytor */
+    --yta-kort: #ffffff;
+    /* Ren vit för kontrastlyft på vissa ytor */
+    --kant: #ddd5cb;
+    /* Warm Greige: diskret elegant ram och linjer */
+    --primar: #6e1a2b;
+    /* Cherry Velvet: djup vinröd modeaccent (>9:1) */
+    --primar-hover: #541320;
+    /* Något mörkare vid hovring */
+    --accent: #6e1a2b;
+    /* Accentfärg för primära knappar */
+    --knapptext: #faf7f2;
+    /* Ljus krämfärg på mörk knapp (>11:1) */
+
+    /* Typografi */
+    --typsnitt-rubrik: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --typsnitt-brodtext: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+    /* Avstånd och former */
+    --luft: 1rem;
+    --radie: 16px;
+    --radie-rund: 9999px;
+    --skugga: 0 10px 25px -8px rgba(35, 27, 28, 0.06);
+    --skugga-hover: 0 16px 32px -8px rgba(110, 26, 43, 0.14);
+}
+
+/* 3 · Grundstil (mobil först, ren typografi och harmoniska proportioner) */
+body {
+    margin: 0;
+    font-family: var(--typsnitt-brodtext);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text);
+    background-color: var(--yta);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--typsnitt-rubrik);
+    line-height: 1.25;
+    color: var(--primar);
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 1.85rem;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+h2 {
+    font-size: 1.65rem;
+    margin-top: 0;
+    margin-bottom: calc(var(--luft) * 1.25);
+    letter-spacing: -0.01em;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin: 0 0 calc(var(--luft) * 0.75);
+    max-width: 65ch;
+}
+
+a {
+    color: var(--primar);
+    text-decoration: none;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 4 · Sidhuvud och meny (stilrent med luft och enkel navigering) */
+header,
+.sidhuvud {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--luft);
+    padding: calc(var(--luft) * 1.5) var(--luft);
+    background: var(--yta);
+    border-bottom: 1px solid var(--kant);
+}
+
+.roll {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-subtil);
+    font-weight: 600;
+    margin: 0.35rem 0 0 0;
+}
+
+nav {
+    width: 100%;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--luft) * 0.75) calc(var(--luft) * 1.25);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text);
+    padding: 0.25rem 0;
+    position: relative;
+}
+
+nav a:hover {
+    color: var(--primar);
+    text-decoration: none;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--primar);
+    transition: width 0.25s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* 5 · Innehållsytan och hjälteavsnittet (Hero) */
+main {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 0 var(--luft);
+}
+
+section {
+    padding: calc(var(--luft) * 3) 0;
+    border-bottom: 1px solid var(--kant);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+/* Hero-sektionen (första sektionen på sidan) */
+.hero,
+main>section:first-of-type {
+    padding-top: calc(var(--luft) * 3.5);
+    padding-bottom: calc(var(--luft) * 3.5);
+}
+
+.hero h2,
+main>section:first-of-type h2 {
+    font-size: 2.1rem;
+    line-height: 1.25;
+    max-width: 28ch;
+    margin-bottom: calc(var(--luft) * 1.25);
+}
+
+.hero p,
+main>section:first-of-type p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: calc(var(--luft) * 2);
+    max-width: 55ch;
+}
+
+/* Primär knapp i mode-stil */
+.knapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.85rem;
+    background: var(--accent);
+    color: var(--knapptext);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    border-radius: var(--radie-rund);
+    box-shadow: var(--skugga);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.knapp:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--skugga-hover);
+    text-decoration: none;
+    background-color: var(--primar-hover);
+    color: var(--knapptext);
+}
+
+/* 6 · Kort i ett rutnät och redaktionella sektioner */
+
+/* Om mig: layout och porträttbild */
+#om .om-innehall {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--luft) * 1.5);
+    align-items: flex-start;
+}
+
+#om img {
+    border-radius: var(--radie);
+    box-shadow: var(--skugga);
+    border: 1px solid var(--kant);
+    object-fit: cover;
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    max-width: 300px;
+}
+
+#om .om-text p {
+    font-size: 1.05rem;
+}
+
+/* Kompetenser: rutnät med numrerade redaktionella kort */
+.rutnat,
+#kompetenser ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--luft) * 1.25);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: kompetens-rakknare;
+}
+
+.kort,
+#kompetenser li {
+    background: var(--yta-2);
+    padding: calc(var(--luft) * 1.5);
+    border: 1px solid var(--kant);
+    border-radius: var(--radie);
+    position: relative;
+    box-shadow: var(--skugga);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.kort:hover,
+#kompetenser li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--skugga-hover);
+    border-color: var(--primar);
+}
+
+/* Subtil numrering (01, 02...) inspirerat av 'Black gray minimalist personal brand.jpg' */
+#kompetenser li::before {
+    counter-increment: kompetens-rakknare;
+    content: "0" counter(kompetens-rakknare);
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--text-subtil);
+    margin-bottom: 0.75rem;
+}
+
+#kompetenser h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Tidigare jobb: logotyper och kort */
+.jobb-lista {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--luft) * 1.5);
+}
+
+#tidigare-jobb .kort {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: calc(var(--luft) * 1.5);
+}
+
+#tidigare-jobb img {
+    height: 60px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 0.6rem 1rem;
+    border-radius: calc(var(--radie) / 2);
+    border: 1px solid var(--kant);
+    margin-bottom: calc(var(--luft) * 1.25);
+}
+
+/* Kontaktsektionen */
+#kontakt p a {
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.25rem 0;
+}
+
+/* 7 · Knappar, fokus och tillgänglighet */
+button,
+#tema {
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.65rem 1.25rem;
+    color: var(--text);
+    background: transparent;
+    border: 1.5px solid var(--kant);
+    border-radius: var(--radie-rund);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover,
+#tema:hover {
+    border-color: var(--primar);
+    color: var(--primar);
+    background: var(--yta-2);
+}
+
+/* Tydlig fokusram för tangentbordsnavigering (krav för tillgänglighet) */
+a:focus-visible,
+button:focus-visible,
+#tema:focus-visible {
+    outline: 3px solid var(--primar);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Sidfot */
+footer {
+    padding: calc(var(--luft) * 3) var(--luft);
+    text-align: center;
+    background: var(--yta-2);
+    border-top: 1px solid var(--kant);
+    margin-top: calc(var(--luft) * 2);
+}
+
+footer p {
+    font-size: 0.875rem;
+    color: var(--text-subtil);
+    margin: 0 auto;
+}
+
+/* 8 · Större skärmar (skärmbredd från 768px och uppåt) */
+@media (min-width: 48rem) {
+
+    header,
+    .sidhuvud {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: calc(var(--luft) * 1.5) calc(var(--luft) * 2.5);
+    }
+
+    h1 {
+        font-size: 2.35rem;
+    }
+
+    .hero h2,
+    main>section:first-of-type h2 {
+        font-size: 2.85rem;
+    }
+
+    h2 {
+        font-size: 2.15rem;
+    }
+
+    /* Om mig: elegant tvåkolumnslayout med bild och text bredvid varandra */
+    #om .om-innehall {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: calc(var(--luft) * 3);
+        align-items: center;
+    }
+
+    /* Kompetenser: två kolumner på surfplatta */
+    .rutnat,
+    #kompetenser ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Tidigare jobb: två kolumner sida vid sida */
+    .jobb-lista {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 64rem) {
+
+    /* Kompetenser: tre kolumner på större datorskärm */
+    .rutnat,
+    #kompetenser ul {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 9 · Mörkt läge: nya färger när body har klassen morkt */
+body.morkt {
+    /* Färger för mörkt läge */
+    --text: #faf6f0;
+    /* Vanilla Silk: mjuk ljus krämfärg (>14:1) */
+    --text-subtil: #c2b5b8;
+    /* Mjuk pudrig ljusgrå för sekundär text (>7.5:1) */
+    --yta: #181214;
+    /* Bordeaux Noir: djup vinröd/svart bakgrund */
+    --yta-2: #241c1f;
+    /* Elegant plommon-greige för kort och sidfot */
+    --yta-kort: #2b2125;
+    /* Något ljusare för extra djup */
+    --kant: #3e3035;
+    /* Dämpad mörk ram */
+    --primar: #efa7b3;
+    /* Soft Blush: mjuk ljusrosa med hög kontrast (>9:1) */
+    --primar-hover: #f7c5ce;
+    /* Ännu ljusare vid hovring */
+    --accent: #efa7b3;
+    /* Ljusrosa accentfärg */
+    --knapptext: #181214;
+    /* Mörk kontrasttext på ljus knapp (>9:1) */
+
+    /* Skuggor anpassade för mörk bakgrund */
+    --skugga: 0 10px 25px -8px rgba(0, 0, 0, 0.5);
+    --skugga-hover: 0 16px 32px -8px rgba(239, 167, 179, 0.2);
+}

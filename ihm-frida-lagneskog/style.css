@@ -1,10 +1,12 @@
 /* ==========================================================================
-   Frida Lagneskog - Personal Brand Style
-   Designad med inspiration från modetidningar, editorial minimalism
-   och lugna, varma färgtoner.
+   Frida Lagneskog - Minimalistisk & Redaktionell Design
+   Inspirerad av modern redaktionell estetik, lyxiga modemagasin och
+   skandinavisk minimalism med dämpad salvia/oliv och mjuk beigegrå off-white.
    ========================================================================== */
 
-/* 1 · Box-modellen: bredden gäller hela lådan och mjuk scrollning */
+/* --------------------------------------------------------------------------
+   1 · Box-modell & Grundåterställning
+   -------------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -13,150 +15,212 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px;
 }
 
-/* 2 · Varumärket som variabler (inspirerat av färgkartan i 'ladda ned (1).jpg') */
+/* --------------------------------------------------------------------------
+   2 · Färgpalett & Variabler (Off-white, dämpad olivgrön & grafitgrå)
+   -------------------------------------------------------------------------- */
 :root {
-    /* Färger för ljust läge */
-    --text: #231b1c;
-    /* Bordeaux Noir: djup espressobrun för hög kontrast (>14:1) */
-    --text-subtil: #5c5053;
-    /* Mjuk dämpad ton för sekundär text (>6.5:1) */
-    --yta: #faf7f2;
-    /* Vanilla Silk: varm, lugn krämfärgad bakgrund */
-    --yta-2: #f2ece2;
-    /* Alpine Oat: mjuk ljusgreige för kort och ytor */
-    --yta-kort: #ffffff;
-    /* Ren vit för kontrastlyft på vissa ytor */
-    --kant: #ddd5cb;
-    /* Warm Greige: diskret elegant ram och linjer */
-    --primar: #6e1a2b;
-    /* Cherry Velvet: djup vinröd modeaccent (>9:1) */
-    --primar-hover: #541320;
-    /* Något mörkare vid hovring */
-    --accent: #6e1a2b;
-    /* Accentfärg för primära knappar */
-    --knapptext: #faf7f2;
-    /* Ljus krämfärg på mörk knapp (>11:1) */
+    /* Primära färger - Ljust redaktionellt läge */
+    --yta: #F5F4F0;              /* Primär mjuk beigegrå off-white bakgrund */
+    --yta-2: #EBE9E3;            /* Sekundär dämpad greige för kort och banners */
+    --yta-kort: #FAF9F6;         /* Mycket ljus yta för kortkontrast */
+    --oliv: #7A7D5E;             /* Dämpad olivgrön / mörk salvia accent */
+    --oliv-mork: #66694D;        /* Djupare olivgrön för hovring */
+    --oliv-ljus: #909472;        /* Mjukare olivton */
+    --text: #1A1A1A;             /* Mörk grafitgrå för högsta läsbarhet */
+    --text-subtil: #5E5D57;      /* Dämpad gråbrun för sekundär brödtext och etiketter */
+    --kant: #DFDCD4;             /* Tunna, eleganta separationslinjer */
+    --kant-mork: #1A1A1A;        /* Mörk linje vid behov av skarp kontrast */
+    --vit: #FFFFFF;              /* Ren krispig vit för knappar och detaljer */
 
     /* Typografi */
-    --typsnitt-rubrik: 'Playfair Display', Georgia, 'Times New Roman', serif;
-    --typsnitt-brodtext: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --typsnitt-rubrik: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    --typsnitt-brodtext: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-    /* Avstånd och former */
-    --luft: 1rem;
-    --radie: 16px;
-    --radie-rund: 9999px;
-    --skugga: 0 10px 25px -8px rgba(35, 27, 28, 0.06);
-    --skugga-hover: 0 16px 32px -8px rgba(110, 26, 43, 0.14);
+    /* Luft och layout */
+    --bredd-max: 1320px;
+    --bredd-split: 1440px;
+    --luft-sektion: clamp(3.5rem, 6vw, 6.5rem);
+    --luft-ruta: clamp(2rem, 4.5vw, 4.5rem);
+
+    /* Raka hörn - strikt redaktionell minimalism */
+    --radie: 0px;
+    --skugga: none;
+    --skugga-subtil: 0 4px 20px rgba(0, 0, 0, 0.04);
+
+    /* Övergångar */
+    --snabb-transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 3 · Grundstil (mobil först, ren typografi och harmoniska proportioner) */
+/* --------------------------------------------------------------------------
+   3 · Grundläggande Typografi & Allmänna Element
+   -------------------------------------------------------------------------- */
 body {
     margin: 0;
     font-family: var(--typsnitt-brodtext);
     font-size: 1rem;
-    line-height: 1.65;
+    line-height: 1.7;
     color: var(--text);
     background-color: var(--yta);
-    transition: background-color 0.3s ease, color 0.3s ease;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     font-family: var(--typsnitt-rubrik);
-    line-height: 1.25;
-    color: var(--primar);
-    font-weight: 600;
-}
-
-h1 {
-    font-size: 1.85rem;
-    margin: 0;
-    letter-spacing: -0.01em;
-}
-
-h2 {
-    font-size: 1.65rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--text);
     margin-top: 0;
-    margin-bottom: calc(var(--luft) * 1.25);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
 }
 
-h3 {
-    font-size: 1.2rem;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
+/* Elegant redaktionell kursiv stil för utvalda ord i rubriker */
+h1 em,
+h2 em,
+h3 em,
+.editorial-titel em {
+    font-style: italic;
+    font-weight: 400;
 }
 
 p {
-    margin: 0 0 calc(var(--luft) * 0.75);
-    max-width: 65ch;
+    margin: 0 0 1.25rem 0;
+    color: var(--text-subtil);
+    font-weight: 400;
+}
+
+p:last-child {
+    margin-bottom: 0;
 }
 
 a {
-    color: var(--primar);
+    color: var(--text);
     text-decoration: none;
-    transition: opacity 0.2s ease, color 0.2s ease;
-}
-
-a:hover {
-    text-decoration: underline;
+    transition: var(--snabb-transition);
 }
 
 img {
     max-width: 100%;
     height: auto;
     display: block;
+    border-radius: var(--radie);
 }
 
-/* 4 · Sidhuvud och meny (stilrent med luft och enkel navigering) */
-header,
+/* Små redaktionella etiketter (Kickers / Overlines) */
+.etikett {
+    display: inline-block;
+    font-family: var(--typsnitt-brodtext);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-subtil);
+    margin-bottom: 1.25rem;
+}
+
+.etikett--ljus {
+    color: rgba(245, 244, 240, 0.85);
+}
+
+.etikett--center {
+    display: block;
+    text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   4 · Header & Minimalistisk Navigering
+   -------------------------------------------------------------------------- */
 .sidhuvud {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--luft);
-    padding: calc(var(--luft) * 1.5) var(--luft);
-    background: var(--yta);
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    background-color: var(--yta);
     border-bottom: 1px solid var(--kant);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    max-width: var(--bredd-split);
+    margin: 0 auto;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+main {
+    width: 100%;
+    max-width: var(--bredd-split);
+    margin: 0 auto;
+}
+
+.logo-omrade {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.brand-h1 {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 1;
+}
+
+.brand-titel {
+    font-family: var(--typsnitt-rubrik);
+    font-size: 1.45rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    display: inline-block;
+}
+
+.brand-titel:hover {
+    opacity: 0.8;
 }
 
 .roll {
-    font-size: 0.8125rem;
+    font-size: 0.725rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     color: var(--text-subtil);
-    font-weight: 600;
-    margin: 0.35rem 0 0 0;
+    font-weight: 500;
+    margin: 0;
 }
 
 nav {
     width: 100%;
+    margin-top: 1rem;
 }
 
 nav ul {
     display: flex;
     flex-wrap: wrap;
-    gap: calc(var(--luft) * 0.75) calc(var(--luft) * 1.25);
+    align-items: center;
+    gap: 1.25rem 2rem;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 nav a {
-    font-size: 0.9375rem;
+    font-size: 0.775rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
     color: var(--text);
-    padding: 0.25rem 0;
+    padding: 0.35rem 0;
     position: relative;
-}
-
-nav a:hover {
-    color: var(--primar);
-    text-decoration: none;
 }
 
 nav a::after {
@@ -165,8 +229,8 @@ nav a::after {
     bottom: 0;
     left: 0;
     width: 0%;
-    height: 2px;
-    background-color: var(--primar);
+    height: 1px;
+    background-color: var(--text);
     transition: width 0.25s ease;
 }
 
@@ -174,299 +238,925 @@ nav a:hover::after {
     width: 100%;
 }
 
-/* 5 · Innehållsytan och hjälteavsnittet (Hero) */
-main {
-    max-width: 68rem;
-    margin: 0 auto;
-    padding: 0 var(--luft);
+.sidhuvud-atgarder {
+    margin-top: 0.75rem;
+    display: flex;
+    align-items: center;
 }
 
-section {
-    padding: calc(var(--luft) * 3) 0;
-    border-bottom: 1px solid var(--kant);
-}
-
-section:last-of-type {
-    border-bottom: none;
-}
-
-/* Hero-sektionen (första sektionen på sidan) */
-.hero,
-main>section:first-of-type {
-    padding-top: calc(var(--luft) * 3.5);
-    padding-bottom: calc(var(--luft) * 3.5);
-}
-
-.hero h2,
-main>section:first-of-type h2 {
-    font-size: 2.1rem;
-    line-height: 1.25;
-    max-width: 28ch;
-    margin-bottom: calc(var(--luft) * 1.25);
-}
-
-.hero p,
-main>section:first-of-type p {
-    font-size: 1.125rem;
-    line-height: 1.7;
+#tema {
+    font-family: var(--typsnitt-brodtext);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 0.5rem 1rem;
+    background: transparent;
     color: var(--text);
-    margin-bottom: calc(var(--luft) * 2);
-    max-width: 55ch;
+    border: 1px solid var(--kant);
+    border-radius: var(--radie);
+    cursor: pointer;
+    transition: var(--snabb-transition);
 }
 
-/* Primär knapp i mode-stil */
+#tema:hover {
+    border-color: var(--text);
+    background-color: var(--yta-2);
+}
+
+/* --------------------------------------------------------------------------
+   5 · Knappar (Minimalistiska med skarpa hörn)
+   -------------------------------------------------------------------------- */
 .knapp {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.85rem 1.85rem;
-    background: var(--accent);
-    color: var(--knapptext);
+    font-family: var(--typsnitt-brodtext);
+    font-size: 0.785rem;
     font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.03em;
-    text-decoration: none;
-    border-radius: var(--radie-rund);
-    box-shadow: var(--skugga);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-}
-
-.knapp:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--skugga-hover);
-    text-decoration: none;
-    background-color: var(--primar-hover);
-    color: var(--knapptext);
-}
-
-/* 6 · Kort i ett rutnät och redaktionella sektioner */
-
-/* Om mig: layout och porträttbild */
-#om .om-innehall {
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--luft) * 1.5);
-    align-items: flex-start;
-}
-
-#om img {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    padding: 1rem 2.25rem;
     border-radius: var(--radie);
-    box-shadow: var(--skugga);
-    border: 1px solid var(--kant);
-    object-fit: cover;
-    aspect-ratio: 4 / 5;
-    width: 100%;
-    max-width: 300px;
-}
-
-#om .om-text p {
-    font-size: 1.05rem;
-}
-
-/* Kompetenser: rutnät med numrerade redaktionella kort */
-.rutnat,
-#kompetenser ul {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: calc(var(--luft) * 1.25);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    counter-reset: kompetens-rakknare;
-}
-
-.kort,
-#kompetenser li {
-    background: var(--yta-2);
-    padding: calc(var(--luft) * 1.5);
-    border: 1px solid var(--kant);
-    border-radius: var(--radie);
-    position: relative;
-    box-shadow: var(--skugga);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.kort:hover,
-#kompetenser li:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--skugga-hover);
-    border-color: var(--primar);
-}
-
-/* Subtil numrering (01, 02...) inspirerat av 'Black gray minimalist personal brand.jpg' */
-#kompetenser li::before {
-    counter-increment: kompetens-rakknare;
-    content: "0" counter(kompetens-rakknare);
-    display: block;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--text-subtil);
-    margin-bottom: 0.75rem;
-}
-
-#kompetenser h3 {
-    font-size: 1.15rem;
-    margin-bottom: 0.25rem;
-}
-
-/* Tidigare jobb: logotyper och kort */
-.jobb-lista {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: calc(var(--luft) * 1.5);
-}
-
-#tidigare-jobb .kort {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: calc(var(--luft) * 1.5);
-}
-
-#tidigare-jobb img {
-    height: 60px;
-    width: auto;
-    max-width: 180px;
-    object-fit: contain;
-    background: #ffffff;
-    padding: 0.6rem 1rem;
-    border-radius: calc(var(--radie) / 2);
-    border: 1px solid var(--kant);
-    margin-bottom: calc(var(--luft) * 1.25);
-}
-
-/* Kontaktsektionen */
-#kontakt p a {
-    font-weight: 600;
-    display: inline-block;
-    padding: 0.25rem 0;
-}
-
-/* 7 · Knappar, fokus och tillgänglighet */
-button,
-#tema {
-    font: inherit;
-    font-size: 0.875rem;
-    font-weight: 600;
-    padding: 0.65rem 1.25rem;
-    color: var(--text);
-    background: transparent;
-    border: 1.5px solid var(--kant);
-    border-radius: var(--radie-rund);
+    border: 1px solid transparent;
     cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-button:hover,
-#tema:hover {
-    border-color: var(--primar);
-    color: var(--primar);
-    background: var(--yta-2);
-}
-
-/* Tydlig fokusram för tangentbordsnavigering (krav för tillgänglighet) */
-a:focus-visible,
-button:focus-visible,
-#tema:focus-visible {
-    outline: 3px solid var(--primar);
-    outline-offset: 4px;
-    border-radius: 4px;
-}
-
-/* Sidfot */
-footer {
-    padding: calc(var(--luft) * 3) var(--luft);
+    transition: var(--snabb-transition);
     text-align: center;
-    background: var(--yta-2);
-    border-top: 1px solid var(--kant);
-    margin-top: calc(var(--luft) * 2);
 }
 
-footer p {
-    font-size: 0.875rem;
+/* Vit knapp för mörka/olivgröna ytor */
+.knapp--vit {
+    background-color: var(--vit);
+    color: #1A1A1A;
+    border-color: var(--vit);
+}
+
+.knapp--vit:hover {
+    background-color: transparent;
+    color: var(--vit);
+    border-color: var(--vit);
+}
+
+/* Dämpad olivgrön knapp för ljusa ytor */
+.knapp--oliv {
+    background-color: var(--oliv);
+    color: var(--vit);
+    border-color: var(--oliv);
+}
+
+.knapp--oliv:hover {
+    background-color: var(--oliv-mork);
+    border-color: var(--oliv-mork);
+    color: var(--vit);
+}
+
+/* --------------------------------------------------------------------------
+   6 · Hero-sektion (2-kolumners grid: Skarpt bildblock + Olivgrön box)
+   -------------------------------------------------------------------------- */
+.hero-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-bottom: 1px solid var(--kant);
+}
+
+.hero-bild-kolumn {
+    width: 100%;
+    min-height: 380px;
+    background-color: var(--yta-2);
+    overflow: hidden;
+}
+
+.hero-foto {
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    max-height: 720px;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: var(--radie);
+    filter: grayscale(15%) contrast(105%);
+}
+
+.hero-text-kolumn {
+    background-color: var(--oliv);
+    color: #F5F4F0;
+    padding: var(--luft-ruta);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.hero-text-kolumn h2 {
+    font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+    line-height: 1.15;
+    color: #F5F4F0;
+    margin-bottom: 1.5rem;
+    max-width: 18ch;
+    letter-spacing: -0.015em;
+}
+
+.hero-text-kolumn p {
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    line-height: 1.75;
+    color: rgba(245, 244, 240, 0.92);
+    max-width: 48ch;
+    margin-bottom: 2.25rem;
+}
+
+.hero-cta-rad {
+    margin-top: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   7 · Editorial Intro Banner
+   -------------------------------------------------------------------------- */
+.editorial-banner {
+    padding: clamp(3.5rem, 6vw, 5.5rem) 1.5rem;
+    text-align: center;
+    background-color: var(--yta);
+    border-bottom: 1px solid var(--kant);
+}
+
+.editorial-titel {
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.015em;
+}
+
+.editorial-ingress {
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    line-height: 1.75;
     color: var(--text-subtil);
+    max-width: 64ch;
     margin: 0 auto;
 }
 
-/* 8 · Större skärmar (skärmbredd från 768px och uppåt) */
-@media (min-width: 48rem) {
+/* --------------------------------------------------------------------------
+   8 · Ticker / Marquee Strip
+   -------------------------------------------------------------------------- */
+.ticker-sektion {
+    border-top: 1px solid var(--kant);
+    border-bottom: 1px solid var(--kant);
+    background-color: var(--yta-2);
+    padding: 0.85rem 0;
+    overflow: hidden;
+    user-select: none;
+    white-space: nowrap;
+}
 
-    header,
+.ticker-innehall {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    width: max-content;
+    animation: rullandeTicker 38s linear infinite;
+}
+
+.ticker-innehall span {
+    font-family: var(--typsnitt-brodtext);
+    font-size: 0.725rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--text);
+    padding: 0 0.5rem;
+}
+
+.ticker-innehall .ticker-punkt {
+    color: var(--oliv);
+    font-size: 1rem;
+    padding: 0 0.75rem;
+}
+
+@keyframes rullandeTicker {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   9 · Asymmetriskt Schackrutigt Rutnät (Checkerboard Sections)
+   -------------------------------------------------------------------------- */
+.schackruta {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-bottom: 1px solid var(--kant);
+}
+
+.schackruta-text {
+    padding: var(--luft-ruta);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.schackruta-bild {
+    width: 100%;
+    min-height: 420px;
+    background-color: var(--yta-2);
+    overflow: hidden;
+}
+
+.sektion-foto {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--radie);
+    filter: grayscale(12%) contrast(104%);
+    transition: transform 0.6s ease;
+}
+
+.schackruta:hover .sektion-foto {
+    transform: scale(1.02);
+}
+
+/* Ljus ruta (Om mig) */
+.ljus-ruta {
+    background-color: var(--yta);
+}
+
+.ljus-ruta h2 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    margin-bottom: 1.5rem;
+    color: var(--text);
+}
+
+.om-text p {
+    font-size: 1.025rem;
+    line-height: 1.75;
+    margin-bottom: 1.15rem;
+}
+
+/* Dämpad olivgrön ruta (Kompetenser) */
+.oliv-ruta {
+    background-color: var(--oliv);
+    color: #F5F4F0;
+}
+
+.rubrik-ljus {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: #F5F4F0;
+    margin-bottom: 0.75rem;
+}
+
+.undertitel-ljus {
+    color: rgba(245, 244, 240, 0.9);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2.25rem;
+    max-width: 52ch;
+}
+
+/* --------------------------------------------------------------------------
+   10 · Interaktiva Dragspel (Accordions med plus/minus-ikoner)
+   -------------------------------------------------------------------------- */
+.accordion-grupp {
+    margin: 2rem 0;
+    border-bottom: 1px solid var(--kant);
+}
+
+.accordion-item {
+    border-top: 1px solid var(--kant);
+    overflow: hidden;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.15rem 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--typsnitt-brodtext);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text);
+    user-select: none;
+    transition: color 0.2s ease;
+}
+
+.accordion-header::-webkit-details-marker {
+    display: none;
+}
+
+.accordion-header:hover {
+    color: var(--oliv);
+}
+
+.accordion-ikon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--text);
+    transition: transform 0.25s ease;
+    width: 24px;
+    height: 24px;
+}
+
+details[open] .accordion-ikon {
+    transform: rotate(45deg);
+}
+
+.accordion-kropp {
+    padding-bottom: 1.25rem;
+}
+
+.accordion-kropp p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--text-subtil);
+    margin: 0;
+}
+
+.sektion-cta {
+    margin-top: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   11 · Kompetenser (Rutnät & Redaktionella Kort med Tunna Linjer)
+   -------------------------------------------------------------------------- */
+.rutnat--redaktionellt {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.rutnat--redaktionellt .kort {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.35rem 0;
+    background: transparent;
+    transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+.rutnat--redaktionellt .kort:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+    padding-left: 0.75rem;
+}
+
+.kort-innehall {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.kort-nummer {
+    font-family: var(--typsnitt-brodtext);
+    font-size: 0.725rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: rgba(245, 244, 240, 0.7);
+    text-transform: uppercase;
+}
+
+.rutnat--redaktionellt h3 {
+    font-family: var(--typsnitt-rubrik);
+    font-size: 1.25rem;
+    color: #FFFFFF;
+    margin: 0;
+    font-weight: 500;
+}
+
+.rutnat--redaktionellt p {
+    font-size: 0.9125rem;
+    line-height: 1.65;
+    color: rgba(245, 244, 240, 0.88);
+    margin: 0;
+    max-width: 50ch;
+}
+
+/* --------------------------------------------------------------------------
+   12 · Tidigare Jobb (Minimalistiska Redaktionella Kort)
+   -------------------------------------------------------------------------- */
+.jobb-sektion {
+    padding: var(--luft-sektion) 1.5rem;
+    max-width: var(--bredd-max);
+    margin: 0 auto;
+    border-bottom: 1px solid var(--kant);
+}
+
+.sektion-rubrik-block {
+    text-align: center;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.sektion-rubrik-block h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.sektion-ingress {
+    font-size: 1.05rem;
+    color: var(--text-subtil);
+    max-width: 55ch;
+    margin: 0 auto;
+}
+
+.jobb-lista {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.jobb-kort {
+    background-color: var(--yta-kort);
+    border: 1px solid var(--kant);
+    padding: clamp(2rem, 4vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: var(--snabb-transition);
+}
+
+.jobb-kort:hover {
+    border-color: var(--text);
+    box-shadow: var(--skugga-subtil);
+}
+
+.jobb-logo-omrade {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.jobb-logo {
+    max-height: 55px;
+    max-width: 170px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.9;
+    transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+.jobb-kort:hover .jobb-logo {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.jobb-tagg {
+    font-size: 0.725rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--oliv);
+    margin-bottom: 0.75rem;
+}
+
+.jobb-kort h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.85rem;
+    color: var(--text);
+}
+
+.jobb-kort p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-subtil);
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   13 · Kontakt-sektion (Minimalistisk Editorial Banner)
+   -------------------------------------------------------------------------- */
+.kontakt-sektion {
+    padding: var(--luft-sektion) 1.5rem;
+    max-width: var(--bredd-max);
+    margin: 0 auto;
+}
+
+.kontakt-ram {
+    background-color: var(--yta-2);
+    border: 1px solid var(--kant);
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+    text-align: center;
+}
+
+.kontakt-innehall {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.kontakt-innehall h2 {
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.kontakt-ingress {
+    font-size: 1.075rem;
+    color: var(--text-subtil);
+    margin-bottom: 2.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Kontaktformulär (Minimalistisk & Skarpa Linjer)
+   -------------------------------------------------------------------------- */
+.kontakt-formular {
+    text-align: left;
+    margin-bottom: 2.75rem;
+}
+
+.formular-rad {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.formular-grupp {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.formular-rad .formular-grupp {
+    margin-bottom: 0;
+}
+
+.formular-etikett {
+    font-family: var(--typsnitt-brodtext);
+    font-size: 0.725rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text-subtil);
+}
+
+.formular-input {
+    font-family: var(--typsnitt-brodtext);
+    font-size: 0.95rem;
+    color: var(--text);
+    background-color: var(--yta);
+    border: 1px solid var(--kant);
+    border-radius: var(--radie);
+    padding: 0.95rem 1.15rem;
+    transition: var(--snabb-transition);
+    width: 100%;
+}
+
+.formular-input::placeholder {
+    color: var(--text-subtil);
+    opacity: 0.6;
+}
+
+.formular-input:focus {
+    outline: none;
+    border-color: var(--text);
+    box-shadow: 0 0 0 1px var(--text);
+    background-color: var(--yta-kort);
+}
+
+.formular-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1.15rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+.formular-textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+.formular-handling {
+    margin-top: 1.5rem;
+}
+
+.formular-knapp {
+    width: 100%;
+    padding: 1.15rem 2.25rem;
+}
+
+.formular-status {
+    margin-top: 1.25rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--oliv);
+    background-color: rgba(122, 125, 94, 0.12);
+    color: var(--text);
+    font-size: 0.925rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.formular-status--lyckad {
+    display: block;
+}
+
+.kontakt-delare {
+    position: relative;
+    text-align: center;
+    margin: 2.75rem 0 2.25rem 0;
+}
+
+.kontakt-delare::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--kant);
+    z-index: 1;
+}
+
+.kontakt-delare span {
+    position: relative;
+    z-index: 2;
+    background-color: var(--yta-2);
+    padding: 0 1.25rem;
+    font-family: var(--typsnitt-brodtext);
+    font-size: 0.675rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--text-subtil);
+}
+
+.kontakt-kort-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    text-align: left;
+}
+
+.kontakt-kort {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--yta);
+    border: 1px solid var(--kant);
+    padding: 1.35rem 1.75rem;
+    transition: var(--snabb-transition);
+}
+
+.kontakt-kort:hover {
+    background-color: var(--text);
+    border-color: var(--text);
+}
+
+.kontakt-kort:hover .kontakt-etikett,
+.kontakt-kort:hover .kontakt-varde,
+.kontakt-kort:hover .kontakt-pil {
+    color: var(--yta);
+}
+
+.kontakt-kort-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.kontakt-etikett {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-subtil);
+    transition: color 0.25s ease;
+}
+
+.kontakt-varde {
+    font-family: var(--typsnitt-rubrik);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: color 0.25s ease;
+}
+
+.kontakt-pil {
+    font-size: 1.5rem;
+    color: var(--oliv);
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.kontakt-kort:hover .kontakt-pil {
+    transform: translateX(6px);
+}
+
+/* --------------------------------------------------------------------------
+   14 · Sidfot (Minimalistisk)
+   -------------------------------------------------------------------------- */
+.sidfot {
+    border-top: 1px solid var(--kant);
+    background-color: var(--yta);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    width: 100%;
+    max-width: var(--bredd-split);
+    margin: 0 auto;
+}
+
+.sidfot-innehall {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    max-width: var(--bredd-max);
+    margin: 0 auto;
+}
+
+.sidfot-brand {
+    font-size: 0.725rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text);
+    margin: 0;
+}
+
+.sidfot-copy {
+    font-size: 0.8125rem;
+    color: var(--text-subtil);
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   15 · Responsivitet & Brytpunkter
+   -------------------------------------------------------------------------- */
+/* Skärmar från 768px (Surfplatta och uppåt) */
+@media (min-width: 48rem) {
     .sidhuvud {
         flex-direction: row;
-        justify-content: space-between;
         align-items: center;
-        padding: calc(var(--luft) * 1.5) calc(var(--luft) * 2.5);
+        padding: 1.35rem 3rem;
     }
 
-    h1 {
-        font-size: 2.35rem;
+    nav {
+        width: auto;
+        margin-top: 0;
     }
 
-    .hero h2,
-    main>section:first-of-type h2 {
-        font-size: 2.85rem;
+    .sidhuvud-atgarder {
+        margin-top: 0;
     }
 
-    h2 {
-        font-size: 2.15rem;
+    /* Hero: 2 kolumner (Vänster bild, Höger text) */
+    .hero-split {
+        grid-template-columns: 1fr 1fr;
     }
 
-    /* Om mig: elegant tvåkolumnslayout med bild och text bredvid varandra */
-    #om .om-innehall {
-        display: grid;
-        grid-template-columns: 320px 1fr;
-        gap: calc(var(--luft) * 3);
-        align-items: center;
+    .hero-bild-kolumn {
+        min-height: 580px;
     }
 
-    /* Kompetenser: två kolumner på surfplatta */
-    .rutnat,
-    #kompetenser ul {
+    .hero-foto {
+        min-height: 580px;
+    }
+
+    /* Schackrutig layout: 2 kolumner */
+    .schackruta--om {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .schackruta--om .schackruta-text {
+        border-right: 1px solid var(--kant);
+    }
+
+    .schackruta--kompetenser {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .schackruta--kompetenser .schackruta-bild {
+        border-right: 1px solid var(--kant);
+    }
+
+    /* Kompetenser i två kolumner inuti den gröna rutan */
+    .rutnat--redaktionellt {
         grid-template-columns: repeat(2, 1fr);
+        column-gap: 2.5rem;
     }
 
-    /* Tidigare jobb: två kolumner sida vid sida */
+    /* Jobb-sektion: 2 kolumner */
     .jobb-lista {
         grid-template-columns: repeat(2, 1fr);
     }
-}
 
-@media (min-width: 64rem) {
+    /* Kontakt-kort: 2 kolumner */
+    .kontakt-kort-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-    /* Kompetenser: tre kolumner på större datorskärm */
-    .rutnat,
-    #kompetenser ul {
-        grid-template-columns: repeat(3, 1fr);
+    /* Kontaktformulär: 2 kolumner per rad */
+    .formular-rad {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .formular-knapp {
+        width: auto;
+        min-width: 240px;
     }
 }
 
-/* 9 · Mörkt läge: nya färger när body har klassen morkt */
-body.morkt {
-    /* Färger för mörkt läge */
-    --text: #faf6f0;
-    /* Vanilla Silk: mjuk ljus krämfärg (>14:1) */
-    --text-subtil: #c2b5b8;
-    /* Mjuk pudrig ljusgrå för sekundär text (>7.5:1) */
-    --yta: #181214;
-    /* Bordeaux Noir: djup vinröd/svart bakgrund */
-    --yta-2: #241c1f;
-    /* Elegant plommon-greige för kort och sidfot */
-    --yta-kort: #2b2125;
-    /* Något ljusare för extra djup */
-    --kant: #3e3035;
-    /* Dämpad mörk ram */
-    --primar: #efa7b3;
-    /* Soft Blush: mjuk ljusrosa med hög kontrast (>9:1) */
-    --primar-hover: #f7c5ce;
-    /* Ännu ljusare vid hovring */
-    --accent: #efa7b3;
-    /* Ljusrosa accentfärg */
-    --knapptext: #181214;
-    /* Mörk kontrasttext på ljus knapp (>9:1) */
+/* Stora skärmar från 1024px (Desktop) */
+@media (min-width: 64rem) {
+    .sidhuvud {
+        padding: 1.5rem 4rem;
+    }
 
-    /* Skuggor anpassade för mörk bakgrund */
-    --skugga: 0 10px 25px -8px rgba(0, 0, 0, 0.5);
-    --skugga-hover: 0 16px 32px -8px rgba(239, 167, 179, 0.2);
+    .hero-bild-kolumn {
+        min-height: 640px;
+    }
+
+    .hero-foto {
+        min-height: 640px;
+    }
+
+    .schackruta-bild {
+        min-height: 600px;
+    }
+
+    .sektion-foto {
+        min-height: 600px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   16 · Mörkt Läge (Harmoniskt mörkt redaktionellt läge vid body.morkt)
+   -------------------------------------------------------------------------- */
+body.morkt {
+    --yta: #161614;              /* Varm djup grafit- och träkolsbakgrund */
+    --yta-2: #21211D;            /* Subtilt ljusare mörk ton för sektioner */
+    --yta-kort: #1E1E1A;         /* Kortbakgrund i mörkt läge */
+    --oliv: #6E7152;             /* Balanserad mjuk salvia */
+    --oliv-mork: #5C5E43;
+    --text: #F3F2EE;             /* Ljus off-white text */
+    --text-subtil: #A4A299;      /* Mjuk dämpad ljusgrå text */
+    --kant: #2D2D28;             /* Mörka eleganta linjer */
+    --kant-mork: #E5E3DC;
+    --vit: #FFFFFF;
+}
+
+body.morkt .hero-foto,
+body.morkt .sektion-foto {
+    filter: grayscale(20%) contrast(108%) brightness(0.95);
+}
+
+body.morkt .jobb-logo {
+    filter: grayscale(100%) invert(0.9);
+}
+
+body.morkt .jobb-kort:hover .jobb-logo {
+    filter: grayscale(0%) invert(0);
+}
+
+body.morkt .kontakt-kort:hover {
+    background-color: #F3F2EE;
+    border-color: #F3F2EE;
+}
+
+body.morkt .kontakt-kort:hover .kontakt-etikett,
+body.morkt .kontakt-kort:hover .kontakt-varde,
+body.morkt .kontakt-kort:hover .kontakt-pil {
+    color: #161614;
+}
+
+body.morkt .formular-input {
+    background-color: var(--yta);
+    border-color: var(--kant);
+    color: var(--text);
+}
+
+body.morkt .formular-input:focus {
+    background-color: var(--yta-kort);
+    border-color: var(--text);
+    box-shadow: 0 0 0 1px var(--text);
+}
+
+body.morkt .formular-select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F3F2EE' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+}
+
+body.morkt .kontakt-delare span {
+    background-color: var(--yta-2);
+}
+
+body.morkt .formular-status {
+    background-color: rgba(110, 113, 82, 0.25);
+    border-color: var(--oliv);
+    color: var(--text);
 }

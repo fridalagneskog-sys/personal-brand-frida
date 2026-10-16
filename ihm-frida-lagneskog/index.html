@@ -8,16 +8,30 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet">
    <link rel="stylesheet" href="style.css">
    <script defer src="script.js"></script>
+   <!-- Google Tag Manager -->
+   <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+               new Date().getTime(), event: 'gtm.js'
+         }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+               'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-MLQKWL65');</script>
+   <!-- End Google Tag Manager -->
 </head>
 
 <body>
+   <!-- Google Tag Manager (noscript) -->
+   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLQKWL65" height="0" width="0"
+         style="display:none;visibility:hidden"></iframe></noscript>
+   <!-- End Google Tag Manager (noscript) -->
    <header class="sidhuvud">
-      <div>
-         <h1>Frida Lagneskog</h1>
+      <div class="logo-omrade">
+         <h1 class="brand-h1"><a href="#" class="brand-titel">Frida Lagneskog</a></h1>
          <p class="roll">Digital Marketing Specialist i Göteborg</p>
       </div>
       <nav aria-label="Huvudmeny">
@@ -28,93 +42,266 @@
             <li><a href="#kontakt">Kontakt</a></li>
          </ul>
       </nav>
-      <button id="tema" type="button" hidden>Byt till mörkt läge</button>
+      <div class="sidhuvud-atgarder">
+         <button id="tema" type="button" hidden>Byt till mörkt läge</button>
+      </div>
    </header>
 
    <main>
-      <section class="hero">
-         <h2>Jag studerar till Digital Marketing Specialist på IHM Business School</h2>
-         <p>Jag är en driven och engagerad student som brinner för digital marknadsföring. Söker ni en LIA-praktikant
-            eller extra hjälp med digital marknadsföring? Tveka inte att höra av er.</p>
-         <a href="#kontakt" class="knapp">Kontakta mig</a>
-      </section>
-
-      <section id="om">
-         <h2>Om mig</h2>
-         <div class="om-innehall">
-            <img src="img/ChatGPT Image 6 okt. 2026 13_39_06.png" alt="Frida Lagneskog profilbild" width="315"
-               height="400">
-            <div class="om-text">
-               <p>Jag utbildar mig till Digital Marketing Specialist på IHM Business School och har ett särskilt
-                  intresse för
-                  sociala medier och content marketing.</p>
-               <p>Jag har tidigare arbetat i klädbutik och hoppas av denna utblidning att få jobba mer med det digitala
-                  och kunna hjälpa små och stora företag inom modebranschen att utvecklas.</p>
+      <!-- HERO SEKTION: 2-kolumners grid (Vänster bild, Höger dämpad olivgrön box) -->
+      <section class="hero hero-split">
+         <div class="hero-bild-kolumn">
+            <img src="img/ChatGPT Image 6 okt. 2026 13_39_06.png"
+               alt="Frida Lagneskog - Mode och Digital Marknadsföring" class="hero-foto" width="800" height="960">
+         </div>
+         <div class="hero-text-kolumn">
+            <span class="etikett etikett--ljus">PACKAGE 01 &bull; PORTFOLIO &amp; LIA</span>
+            <h2>Mode är mitt intresse. <em>Content</em> är min riktning</h2>
+            <p>Jag studerar Digital Marketing Specialist på IHM Business School i Göteborg och brinner för content,
+               sociala
+               medier och kreativ varumärkeskommunikation. Nu vill jag utveckla min kreativa sida inom digital
+               marknadsföring och lära mig mer tillsammans med ett inspirerande team.</p>
+            <div class="hero-cta-rad">
+               <a href="#kontakt" class="knapp knapp--vit">Kontakta mig</a>
             </div>
          </div>
       </section>
 
-      <section id="kompetenser">
-         <h2>Kompetenser</h2>
-         <ul class="rutnat">
-            <li class="kort">
-               <h3>Marknadsföring</h3>
-               <p></p>
-            </li>
-            <li class="kort">
-               <h3>AI och Tech</h3>
-               <p></p>
-            </li>
-            <li class="kort">
-               <h3>Sökmotoroptimering</h3>
-               <p></p>
-            </li>
-            <li class="kort">
-               <h3>Content och influencer marketing</h3>
-               <p></p>
-            </li>
-            <li class="kort">
-               <h3>Paid media - social och SEM</h3>
-               <p></p>
-            </li>
-            <li class="kort">
-               <h3>Tracking och digital analys</h3>
-               <p></p>
-            </li>
-         </ul>
+      <!-- EDITORIAL INTRO BANNER -->
+      <section class="editorial-banner">
+         <span class="etikett etikett--center">CREATIVE STRATEGY</span>
+         <h2 class="editorial-titel">Social Media <em>&amp; Content Management</em></h2>
+         <p class="editorial-ingress">Skapar visuella upplevelser, engagerande berättelser och datadrivna kampanjer
+            anpassade för moderna konsumenter och framåtlutade varumärken.</p>
       </section>
 
-      <section id="tidigare-jobb">
-         <h2>Tidigare jobb</h2>
+      <!-- TICKER / MARQUEE STRIP -->
+      <div class="ticker-sektion" aria-hidden="true">
+         <div class="ticker-innehall">
+            <span>DIGITAL MARKETING</span> <span class="ticker-punkt">&bull;</span>
+            <span>CONTENT CREATION</span> <span class="ticker-punkt">&bull;</span>
+            <span>SOCIAL MEDIA MANAGEMENT</span> <span class="ticker-punkt">&bull;</span>
+            <span>VARUMÄRKESKOMMUNIKATION</span> <span class="ticker-punkt">&bull;</span>
+            <span>LIA VÅREN 2026</span> <span class="ticker-punkt">&bull;</span>
+            <span>GÖTEBORG</span> <span class="ticker-punkt">&bull;</span>
+            <span>IHM BUSINESS SCHOOL</span> <span class="ticker-punkt">&bull;</span>
+            <span>SEO &amp; ANALYTICS</span> <span class="ticker-punkt">&bull;</span>
+            <!-- Dubblerad för skarvlös kontinuerlig rullning -->
+            <span>DIGITAL MARKETING</span> <span class="ticker-punkt">&bull;</span>
+            <span>CONTENT CREATION</span> <span class="ticker-punkt">&bull;</span>
+            <span>SOCIAL MEDIA MANAGEMENT</span> <span class="ticker-punkt">&bull;</span>
+            <span>VARUMÄRKESKOMMUNIKATION</span> <span class="ticker-punkt">&bull;</span>
+            <span>LIA VÅREN 2026</span> <span class="ticker-punkt">&bull;</span>
+            <span>GÖTEBORG</span> <span class="ticker-punkt">&bull;</span>
+            <span>IHM BUSINESS SCHOOL</span> <span class="ticker-punkt">&bull;</span>
+            <span>SEO &amp; ANALYTICS</span> <span class="ticker-punkt">&bull;</span>
+         </div>
+      </div>
+
+      <!-- SEKTION 1: OM MIG (Schackrutig: Text & Accordion till vänster, Bild till höger) -->
+      <section id="om" class="schackruta schackruta--om">
+         <div class="schackruta-text ljus-ruta">
+            <span class="etikett">THE DETAILS</span>
+            <h2>Om <em>mig</em></h2>
+            <div class="om-text">
+               <p>Mode, kreativitet och digital kommunikation är sådant som inspirerar mig.</p>
+               <p>Med erfarenhet från klädbranschen och ett stort personligt modeintresse har jag med mig en känsla för
+                  stil, kundperspektiv och varumärkesupplevelser. Nu vill jag kombinera det med mina kunskaper inom
+                  digital marknadsföring och utvecklas vidare inom content och social media marketing.</p>
+               <p>Jag söker LIA hos ett kreativt team där jag får bidra med idéer, lära mig genom att göra och vara med
+                  och skapa innehåll som gör skillnad</p>
+            </div>
+
+            <!-- Interaktiva utfällbara dragspel (accordions) med stilrena plus/minus-ikoner -->
+            <div class="accordion-grupp">
+               <details class="accordion-item" open>
+                  <summary class="accordion-header">
+                     <span class="accordion-titel">VAD JAG SÖKER (LIA)</span>
+                     <span class="accordion-ikon" aria-hidden="true">+</span>
+                  </summary>
+                  <div class="accordion-kropp">
+                     <p>En LIA-praktikplats under våren 2026 där jag kan arbeta praktiskt med content creation, sociala
+                        medier, kampanjplanering och stärka varumärkets digitala röst.</p>
+                  </div>
+               </details>
+
+               <details class="accordion-item">
+                  <summary class="accordion-header">
+                     <span class="accordion-titel">BAKGRUND &amp; MODEFOKUS</span>
+                     <span class="accordion-ikon" aria-hidden="true">+</span>
+                  </summary>
+                  <div class="accordion-kropp">
+                     <p>Med erfarenheter från Gina Tricot och Kappahl har jag lärt mig att förstå kundens drivkrafter,
+                        trender, visuell storytelling och konsten att skapa lojalitet.</p>
+                  </div>
+               </details>
+
+               <details class="accordion-item">
+                  <summary class="accordion-header">
+                     <span class="accordion-titel">HUR JAG ARBETAR</span>
+                     <span class="accordion-ikon" aria-hidden="true">+</span>
+                  </summary>
+                  <div class="accordion-kropp">
+                     <p>Nyfiken, estetiskt driven och noggrann. Jag gillar att kombinera stark visuell identitet med
+                        mätbarhet och analys för att uppnå hållbara resultat.</p>
+                  </div>
+               </details>
+            </div>
+
+            <div class="sektion-cta">
+               <a href="#kontakt" class="knapp knapp--oliv">Hör av dig</a>
+            </div>
+         </div>
+
+         <div class="schackruta-bild">
+            <img src="img/personal-brand-profilbild 2.PNG" alt="Frida Lagneskog profilbild" width="600" height="750"
+               class="sektion-foto">
+         </div>
+      </section>
+
+      <!-- SEKTION 2: KOMPETENSER (Schackrutig: Bild till vänster, Olivgrön box till höger) -->
+      <section id="kompetenser" class="schackruta schackruta--kompetenser">
+         <div class="schackruta-bild">
+            <img src="img/personal-brand-profilbild 3.PNG" alt="Frida Lagneskog - Kompetenser och erfarenhet"
+               width="600" height="750" class="sektion-foto">
+         </div>
+
+         <div class="schackruta-text oliv-ruta">
+            <span class="etikett etikett--ljus">AREAS OF EXPERTISE</span>
+            <h2 class="rubrik-ljus">Kompetenser <em>&amp; fokus</em></h2>
+            <p class="undertitel-ljus">En mångsidig verktygslåda som sammanför kreativitet med datadriven digital
+               närvaro.</p>
+
+            <ul class="rutnat rutnat--redaktionellt">
+               <li class="kort">
+                  <div class="kort-innehall">
+                     <span class="kort-nummer">01</span>
+                     <h3>Marknadsföring</h3>
+                     <p>Strategisk varumärkeskommunikation, målgruppsanalys, konceptutveckling och integrerade
+                        marknadsföringsinsatser.</p>
+                  </div>
+               </li>
+               <li class="kort">
+                  <div class="kort-innehall">
+                     <span class="kort-nummer">02</span>
+                     <h3>AI och Tech</h3>
+                     <p>Prompt engineering, generativa verktyg, digital automatisering och effektiva arbetsflöden för
+                        produktion.</p>
+                  </div>
+               </li>
+               <li class="kort">
+                  <div class="kort-innehall">
+                     <span class="kort-nummer">03</span>
+                     <h3>Sökmotoroptimering</h3>
+                     <p>On-page &amp; off-page SEO, sökordsresearch, innehållsstruktur och optimering för organisk
+                        synlighet.</p>
+                  </div>
+               </li>
+               <li class="kort">
+                  <div class="kort-innehall">
+                     <span class="kort-nummer">04</span>
+                     <h3>Content och influencer marketing</h3>
+                     <p>Visuellt innehåll, copywriting för sociala medier, rörligt material, samarbetsstrategier och
+                        varumärkesambassadörer.</p>
+                  </div>
+               </li>
+               <li class="kort">
+                  <div class="kort-innehall">
+                     <span class="kort-nummer">05</span>
+                     <h3>Paid media - social och SEM</h3>
+                     <p>Målgruppsstyrd annonsering på Meta, TikTok och Google Ads samt kampanjoptimering mot uppsatta
+                        mål.</p>
+                  </div>
+               </li>
+               <li class="kort">
+                  <div class="kort-innehall">
+                     <span class="kort-nummer">06</span>
+                     <h3>Tracking och digital analys</h3>
+                     <p>Datainsamling via Google Analytics 4, Tag Manager, mätpunkter, KPI-analys och
+                        konverteringsoptimering.</p>
+                  </div>
+               </li>
+            </ul>
+         </div>
+      </section>
+
+      <!-- SEKTION 3: TIDIGARE JOBB (Editorial grid) -->
+      <section id="tidigare-jobb" class="jobb-sektion">
+         <div class="sektion-rubrik-block">
+            <span class="etikett etikett--center">EXPERIENCE</span>
+            <h2>Tidigare <em>jobb</em></h2>
+            <p class="sektion-ingress">Praktisk erfarenhet från retail och modebranschen som format min känsla för
+               kundmöten och visuell presentation.</p>
+         </div>
+
          <div class="jobb-lista">
-            <article class="kort">
-               <img src="https://mb.cision.com/Public/855/2173618/aded8eeba1268b85_org.jpg" alt="Gina Tricot logo"
-                  width="200" height="100">
+            <article class="kort jobb-kort">
+               <div class="jobb-logo-omrade">
+                  <img src="https://mb.cision.com/Public/855/2173618/aded8eeba1268b85_org.jpg" alt="Gina Tricot logo"
+                     width="200" height="100" class="jobb-logo">
+               </div>
+               <span class="jobb-tagg">RETAIL &amp; COMMERCE</span>
                <h3>Butikssäljare - Gina Tricot</h3>
                <p>Arbetade i en del av ett team för att uppnå företagets mål och utförde andra uppgifter som att stå i
                   kassan, hjälpa kunder, fylla på butiken och upprätthålla en organiserad och ren arbetsplats.</p>
             </article>
-            <article class="kort">
-               <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb02MdZuH4FL2y14DVfntzesoK6RxJY8V3Gs4oWfGFDg&s=10"
-                  alt="Kappahl logo" width="250" height="80">
+
+            <article class="kort jobb-kort">
+               <div class="jobb-logo-omrade">
+                  <img
+                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb02MdZuH4FL2y14DVfntzesoK6RxJY8V3Gs4oWfGFDg&s=10"
+                     alt="Kappahl logo" width="250" height="80" class="jobb-logo">
+               </div>
+               <span class="jobb-tagg">INTERNSHIP &amp; MERCHANDISING</span>
                <h3>Praktik - Kappahl</h3>
                <p>Effektivt utförande av tilldelade uppgifter samt hjälpa kunder och fylla på butiken.</p>
             </article>
          </div>
       </section>
 
-      <section id="kontakt">
-         <h2>Kontakt</h2>
-         <p>Vill du veta mer? Mejla mig eller hör av dig på LinkedIn.</p>
-         <p><a href="mailto:frilag506@ihmeducation.se">frilag506@ihmeducation.se</a></p>
-         <p><a href="https://www.linkedin.com/in/frida-lagneskog-147051428/" target="_blank" rel="noopener">Min LinkedIn
-               profil</a></p>
+      <!-- SEKTION 4: KONTAKT (Minimalist & Editorial Banner med Formulär) -->
+      <section id="kontakt" class="kontakt-sektion">
+         <div class="kontakt-ram">
+            <div class="kontakt-innehall">
+               <span class="etikett">LET'S CONNECT</span>
+               <h2>Vill du samarbeta? <em>Hör av dig</em></h2>
+
+               <!-- HubSpot-formuläret skapar formuläret och hanterar inskickningen -->
+               <div id="kontakt-formular" class="kontakt-formular" aria-label="Kontaktformulär"></div>
+               <div id="formular-status" class="formular-status" aria-live="polite" hidden></div>
+
+               <!-- Direktlänkar & Kontaktkort -->
+               <div class="kontakt-delare">
+                  <span>ELLER NÅ MIG DIREKT</span>
+               </div>
+
+               <div class="kontakt-kort-grid">
+                  <a href="mailto:frilag506@ihmeducation.se" class="kontakt-kort">
+                     <div class="kontakt-kort-info">
+                        <span class="kontakt-etikett">DIREKTKONTAKT</span>
+                        <span class="kontakt-varde">frilag506@ihmeducation.se</span>
+                     </div>
+                     <span class="kontakt-pil" aria-hidden="true">&rarr;</span>
+                  </a>
+                  <a href="https://www.linkedin.com/in/frida-lagneskog-147051428/" target="_blank" rel="noopener"
+                     class="kontakt-kort">
+                     <div class="kontakt-kort-info">
+                        <span class="kontakt-etikett">NÄTVERK</span>
+                        <span class="kontakt-varde">Min LinkedIn profil</span>
+                     </div>
+                     <span class="kontakt-pil" aria-hidden="true">&rarr;</span>
+                  </a>
+               </div>
+            </div>
+         </div>
       </section>
    </main>
 
-   <footer>
-      <p>© 2026 Frida Lagneskog · Byggd för hand med HTML, CSS och JavaScript</p>
+   <footer class="sidfot">
+      <div class="sidfot-innehall">
+         <p class="sidfot-brand">FRIDA LAGNESKOG &bull; DIGITAL MARKETING SPECIALIST &bull; GÖTEBORG</p>
+         <p class="sidfot-copy">© 2026 Frida Lagneskog · Byggd för hand med HTML, CSS och JavaScript</p>
+      </div>
    </footer>
 </body>
 

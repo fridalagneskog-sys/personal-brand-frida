@@ -23,17 +23,28 @@ html {
    -------------------------------------------------------------------------- */
 :root {
     /* Primära färger - Ljust redaktionellt läge */
-    --yta: #F5F4F0;              /* Primär mjuk beigegrå off-white bakgrund */
-    --yta-2: #EBE9E3;            /* Sekundär dämpad greige för kort och banners */
-    --yta-kort: #FAF9F6;         /* Mycket ljus yta för kortkontrast */
-    --oliv: #7A7D5E;             /* Dämpad olivgrön / mörk salvia accent */
-    --oliv-mork: #66694D;        /* Djupare olivgrön för hovring */
-    --oliv-ljus: #909472;        /* Mjukare olivton */
-    --text: #1A1A1A;             /* Mörk grafitgrå för högsta läsbarhet */
-    --text-subtil: #5E5D57;      /* Dämpad gråbrun för sekundär brödtext och etiketter */
-    --kant: #DFDCD4;             /* Tunna, eleganta separationslinjer */
-    --kant-mork: #1A1A1A;        /* Mörk linje vid behov av skarp kontrast */
-    --vit: #FFFFFF;              /* Ren krispig vit för knappar och detaljer */
+    --yta: #F5F4F0;
+    /* Primär mjuk beigegrå off-white bakgrund */
+    --yta-2: #EBE9E3;
+    /* Sekundär dämpad greige för kort och banners */
+    --yta-kort: #FAF9F6;
+    /* Mycket ljus yta för kortkontrast */
+    --oliv: #7A7D5E;
+    /* Dämpad olivgrön / mörk salvia accent */
+    --oliv-mork: #66694D;
+    /* Djupare olivgrön för hovring */
+    --oliv-ljus: #909472;
+    /* Mjukare olivton */
+    --text: #1A1A1A;
+    /* Mörk grafitgrå för högsta läsbarhet */
+    --text-subtil: #5E5D57;
+    /* Dämpad gråbrun för sekundär brödtext och etiketter */
+    --kant: #DFDCD4;
+    /* Tunna, eleganta separationslinjer */
+    --kant-mork: #1A1A1A;
+    /* Mörk linje vid behov av skarp kontrast */
+    --vit: #FFFFFF;
+    /* Ren krispig vit för knappar och detaljer */
 
     /* Typografi */
     --typsnitt-rubrik: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
@@ -435,6 +446,7 @@ nav a:hover::after {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -1099,14 +1111,21 @@ details[open] .accordion-ikon {
    16 · Mörkt Läge (Harmoniskt mörkt redaktionellt läge vid body.morkt)
    -------------------------------------------------------------------------- */
 body.morkt {
-    --yta: #161614;              /* Varm djup grafit- och träkolsbakgrund */
-    --yta-2: #21211D;            /* Subtilt ljusare mörk ton för sektioner */
-    --yta-kort: #1E1E1A;         /* Kortbakgrund i mörkt läge */
-    --oliv: #6E7152;             /* Balanserad mjuk salvia */
+    --yta: #161614;
+    /* Varm djup grafit- och träkolsbakgrund */
+    --yta-2: #21211D;
+    /* Subtilt ljusare mörk ton för sektioner */
+    --yta-kort: #1E1E1A;
+    /* Kortbakgrund i mörkt läge */
+    --oliv: #6E7152;
+    /* Balanserad mjuk salvia */
     --oliv-mork: #5C5E43;
-    --text: #F3F2EE;             /* Ljus off-white text */
-    --text-subtil: #A4A299;      /* Mjuk dämpad ljusgrå text */
-    --kant: #2D2D28;             /* Mörka eleganta linjer */
+    --text: #F3F2EE;
+    /* Ljus off-white text */
+    --text-subtil: #A4A299;
+    /* Mjuk dämpad ljusgrå text */
+    --kant: #2D2D28;
+    /* Mörka eleganta linjer */
     --kant-mork: #E5E3DC;
     --vit: #FFFFFF;
 }
